@@ -3,6 +3,7 @@
 	<deployment>
 		<exclusions>
 			<module name="org.jboss.resteasy.resteasy-jackson-provider" />
+			<module name="com.google.guava" />
 		</exclusions>
 		<dependencies>
             <module name="org.jboss.resteasy.resteasy-jackson2-provider" services="import"/>

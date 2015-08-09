@@ -1,12 +1,12 @@
 package com.rest.application;
 
+import io.swagger.jaxrs.config.BeanConfig;
+
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
 
 import javax.ws.rs.core.Application;
-
-import com.wordnik.swagger.jaxrs.config.BeanConfig;
 
 public class RestApplication extends Application {
 	
@@ -29,9 +29,8 @@ public class RestApplication extends Application {
         Set<Class<?>> resources = new HashSet();
         
         //Swagger Resources
-        resources.add(com.wordnik.swagger.jersey.listing.ApiListingResourceJSON.class);
-        resources.add(com.wordnik.swagger.jersey.listing.JerseyApiDeclarationProvider.class);
-        resources.add(com.wordnik.swagger.jersey.listing.JerseyResourceListingProvider.class);
+        resources.add(io.swagger.jaxrs.listing.ApiListingResource.class);
+        resources.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
 
         return resources;
     }

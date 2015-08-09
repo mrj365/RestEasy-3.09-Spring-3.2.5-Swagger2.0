@@ -1,5 +1,11 @@
 package com.rest.resource;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -21,11 +27,6 @@ import javax.ws.rs.core.Response.Status;
 import org.springframework.stereotype.Component;
 
 import com.rest.model.Person;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
-import com.wordnik.swagger.annotations.ApiResponse;
-import com.wordnik.swagger.annotations.ApiResponses;
 
 
 @Api(value = "/people",	
@@ -46,7 +47,6 @@ public class PersonResource {
 	@GET
 	@Produces("application/json")
 	@ApiOperation(value = "Get all people", notes = "Returns a list of people", response = Person.class, responseContainer="List")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "List of people")})
 	public Response getAllPeople(
 				@ApiParam(value = "Start index of the list of people", allowableValues = "range[1,1000]", required = true) 
 				@QueryParam(value="startIndex") int startIndex, 
